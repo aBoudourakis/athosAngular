@@ -1,1 +1,1 @@
-# athosAngular
+# Angular test project
