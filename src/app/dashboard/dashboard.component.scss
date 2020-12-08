@@ -1,0 +1,28 @@
+.dashboard {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  &-panel {
+    width: fit-content;
+    min-width: 250px;
+    margin: 0 auto;
+    background-color: rgba(0,0,0,0.2);
+    border: 1px solid darkblue;
+    padding: 12px;
+    &__header {
+      font-size: 1.8em;
+      width: 100%;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 100;
+      margin-bottom: 16px;
+      cursor: default;
+    }
+    &__body {
+      padding: 0 4px;
+    }
+    & button {
+      margin: 0 auto;
+    }
+  }
+}

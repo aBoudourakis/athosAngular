@@ -1,0 +1,44 @@
+<div class="registration">
+  <div class="panel">
+    <div class="panel__header">Angular app</div>
+    <div class="panel__body">
+      <form (ngSubmit)="onSubmit(formContent)" #formContent="ngForm">
+        <div class="form-group">
+          <div *ngFor="let formElement of formElements">
+            <label [for]="formElement.name">{{ formElement.label }}</label>
+            <input
+              *ngIf="formElement.type === 'password'; else formInputElement"
+              class="form-control mb-3"
+              [type]="showPassword ? 'text':'password'"
+              [required]="formElement.required"
+              [name]="formElement.name"
+              [id]="formElement.name"
+              ngModel
+            >
+            <ng-template #formInputElement>
+              <input
+                class="form-control mb-3"
+                [type]="formElement.type"
+                [required]="formElement.required"
+                [name]="formElement.name"
+                [id]="formElement.name"
+                ngModel
+              >
+            </ng-template>
+            <div *ngIf="formElement.type === 'password'" (click)="showPassword = !showPassword">
+              <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+              <i class="material-icons" style="cursor: pointer">{{ showPassword ? 'visibility_off' : 'visibility' }}</i>
+            </div>
+          </div>
+        </div>
+        <button
+          class="btn btn-primary"
+          [style]="formContent.form.status === 'INVALID' ? 'cursor: not-allowed':'cursor: pointer'"
+          type="submit"
+          [disabled]="formContent.form.status === 'INVALID'"
+        >Register
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
